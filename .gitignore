@@ -1,0 +1,54 @@
+.env
+.venv/
+
+# Local AI agent tooling (not deployed to Railway)
+.agents/
+skills/
+skills-lock.json
+
+# Local web control panel (not deployed to Railway)
+studio/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+.codex/
+supabase/.temp/
+backups/
+
+# Sensitive / large local data: everything under data/ except structure placeholders
+Telegram Export/
+data/*
+!data/cleaned/
+!data/extracted/
+!data/raw/
+!data/journal/
+!data/sessions/
+data/cleaned/*
+data/extracted/*
+data/raw/*
+data/journal/*
+data/sessions/*
+
+# Books corpus (in Supabase; skip on Railway deploy)
+books/raw/
+books/processed/
+books/profiles/
+books/structure_report.json
+
+# Runtime and pipeline artifacts
+*.log
+*.pid
+*.nohup
+logs/*.log
+
+# Keep structure placeholders
+!data/cleaned/.gitkeep
+!data/extracted/.gitkeep
+!data/raw/.gitkeep
+!data/journal/.gitkeep
+!data/sessions/.gitkeep
+!logs/.gitkeep

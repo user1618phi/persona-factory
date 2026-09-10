@@ -1,0 +1,11 @@
+# Production bot runtime — intentionally excludes torch/marker.
+python-dotenv==1.2.2
+httpx==0.28.1
+google-generativeai==0.8.6
+supabase==2.31.0
+litellm==1.89.1
+aiogram==3.29.0
+fastapi==0.137.1
+uvicorn==0.49.0
+tiktoken==0.13.0
+yt-dlp==2026.6.9

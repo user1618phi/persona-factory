@@ -1,0 +1,21 @@
+# Heavy ingest image: marker, torch, semantic chunker, books pipeline
+FROM python:3.12-slim
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY scripts/ ./scripts/
+COPY src/ ./src/
+COPY books/ ./books/
+
+# Default: dry-run chunking (override CMD for convert_pdf, book_processor, etc.)
+CMD ["python", "scripts/md_chunker.py", "--dry-run"]
