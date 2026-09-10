@@ -98,6 +98,7 @@ def test_default_quota_behavior_stops_cleanly(monkeypatch):
 
 def test_global_python_reexecs_project_venv(monkeypatch):
     expected_venv = ROOT / ".venv"
+    monkeypatch.delenv("PERSONA_SKIP_VENV_CHECK", raising=False)
     monkeypatch.setattr("scripts.lib.project_runtime.sys.prefix", "/global/python")
     monkeypatch.setattr(
         "scripts.lib.project_runtime.sys.argv",

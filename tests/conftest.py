@@ -17,6 +17,8 @@ _DEFAULTS = {
     "TELEGRAM_BOT_TOKEN": "123456:test-token",
     "TELEGRAM_CHANNEL_ID": "-1001234567890",
     "STUDIO_API_SECRET": "test-studio-secret",
+    # scripts/lib/project_runtime: do not re-exec into .venv while collecting tests
+    "PERSONA_SKIP_VENV_CHECK": "1",
 }
 
 for _key, _value in _DEFAULTS.items():
