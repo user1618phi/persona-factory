@@ -13,6 +13,10 @@ def ensure_project_venv(script_file: str, root: Path) -> None:
     venv_python = project_venv / "bin" / "python"
     if Path(sys.prefix).resolve() == project_venv:
         return
+    # Importing a script under pytest or in CI must not re-exec or demand a local
+    # .venv: the interpreter running the tests already has the dependencies.
+    if "pytest" in sys.modules or os.environ.get("CI") or os.environ.get("PERSONA_SKIP_VENV_CHECK"):
+        return
     if not venv_python.exists():
         raise SystemExit(
             "Project virtual environment is missing. Run:\n"
