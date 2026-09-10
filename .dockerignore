@@ -1,0 +1,23 @@
+.venv
+venv
+__pycache__
+*.pyc
+.pytest_cache
+.mypy_cache
+.env
+.git
+.cursor
+.agents
+skills
+skills-lock.json
+books/raw
+books/processed
+Telegram Export
+data/cleaned
+data/extracted
+data/journal
+data/sessions
+backups
+supabase/.temp
+*.log
+*.pid
